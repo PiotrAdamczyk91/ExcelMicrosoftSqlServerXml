@@ -103,8 +103,7 @@ namespace ExcelMicrosoftSqlServerXml
 
         private void TworzenieTabeli_Click(object sender, EventArgs e)
         {
-            //sqlQuery = @"CREATE TABLE ["+nazwaBazyDanych+"]." + nazwaTabeli 
-            //sqlQuery = @"CREATE TABLE dbo." + nazwaTabeli
+
             sqlQuery = @"CREATE TABLE [" + nazwaBazyDanych + "].dbo." + nazwaTabeli
                 + "( Prac_ID int NOT NULL IDENTITY (1,1), Prac_Dzial varchar(50) NOT NULL, Prac_Kod varchar(50) NOT NULL, "
                 + "Prac_Nazwisko varchar(50) NOT NULL, Prac_Imie varchar(50) NOT NULL, Prac_Stanowisko varchar(50) NOT NULL )"
@@ -125,24 +124,11 @@ namespace ExcelMicrosoftSqlServerXml
 
         private void PobierzDane_Click(object sender, EventArgs e)
         {
-            //OpenFileDialog ofd = new OpenFileDialog();
-            //if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            //{
-            //    txtPa
-            //}
 
 
-            //using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook|*.xls|Excel Workbook|*.xlsx" })
             using (OpenFileDialog openFileDialog = new OpenFileDialog() { Filter = "Excel 97-2003 Workbook|*.xls|Excel Workbook_XLSX|*xlsx", ValidateNames = true })
             {
-                //if (openFileDialog.ShowDialog() == DialogResult.OK)
-                //{
-                //    textSciezka.Text = openFileDialog.FileName;
-                //    using(var stream = openFileDialog.OpenFile(openFileDialog.FileName, FileMode.Open, FileAccess.Read)) 
-                //    { 
-                //        using(IExcelDataReader reader = new IExcelDataReader(stream)) { }
-                //    }
-                //}
+
 
                 System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
@@ -164,7 +150,6 @@ namespace ExcelMicrosoftSqlServerXml
                                 }
                             });
 
-                            //ResoultGrid.DataSource = ds.Tables[0];
 
                             tables = ds.Tables;
                             cbo.Items.Clear();
@@ -188,11 +173,9 @@ namespace ExcelMicrosoftSqlServerXml
             dt = tables[cbo.SelectedItem.ToString()];
             ResoultGrid.DataSource = dt;
 
-            //List<string> listaNazwyKolumn = new List<string>();
-            //var iloscKolumn = dt.Columns;
+
             foreach (var i in dt.Columns)
             {
-                //listaNazwyKolumn.Add(dt.Columns[i.ToString()].ColumnName.ToString());
                 Imie.Items.Add(i.ToString());
                 Nazwisko.Items.Add(i.ToString());
                 KodPracownika.Items.Add(i.ToString());
@@ -201,23 +184,7 @@ namespace ExcelMicrosoftSqlServerXml
 
             }
 
-            //BindingSource bs = new BindingSource();
-            //bs.DataSource = listaNazwyKolumn;
 
-            ////Imie.Items.Clear();
-            //Imie.DataSource = listaNazwyKolumn;
-
-            ////Nazwisko.Items.Clear();
-            //Nazwisko.DataSource = listaNazwyKolumn;
-
-            ////KodPracownika.Items.Clear();
-            //KodPracownika.DataSource = listaNazwyKolumn;
-
-            ////Dzial.Items.Clear();
-            //Dzial.DataSource = listaNazwyKolumn;
-
-            ////Stanowisko.Items.Clear();
-            //Stanowisko.DataSource = listaNazwyKolumn;
         }
 
         private void Import_Click(object sender, EventArgs e)
@@ -271,9 +238,6 @@ namespace ExcelMicrosoftSqlServerXml
             DataTable dataTable = new DataTable();
 
             List<Pracownik> listaPracownikowPobierz = new List<Pracownik>();
-            //XmlReader reader;
-            //XmlDocument xmlDoc;
-
             SqlDataReader reader;
 
             sqlQuery = @"SELECT * FROM [" + nazwaBazyDanych + "].dbo." + nazwaTabeli;
@@ -308,44 +272,14 @@ namespace ExcelMicrosoftSqlServerXml
                 using (StringWriter stringWriter = new StringWriter(new StringBuilder()))
                 {
                     XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Pracownik>));
-                    //xmlSerializer.Serialize(stringWriter, listaPracownikowPobierz);
+
 
                     StreamWriter filestream = new StreamWriter(@"C:\TestExcel\test2.xml");
                     xmlSerializer.Serialize(filestream, listaPracownikowPobierz);
-                    //filestream.Write(stringWriter.ToString());
                     filestream.Close();
                 }
 
 
-
-                //var test = sc.ExecuteNonQuery();
-
-                //reader = sc.ExecuteXmlReader();
-
-                //while (reader.Read())
-                //{
-                //    xmlDoc.Load(reader);
-                //}
-
-                //xmlDoc.Save("Employees.xml");
-
-
-                //SqlDataAdapter da = new SqlDataAdapter(sc);
-
-                //da.Fill(dataTable);
-
-
-                ////da.Fill(dataTable);
-                ////da.Dispose();
-
-                ////dataTable.WriteXml(@"C:\TestExcel\test.xml");
-
-                //foreach (var dr in dataTable.DataSet.)
-                //{
-                //    var test = dr.ToString();
-                //}
-
-                //List<DataRow> list = da.
 
 
                 MessageBox.Show("Pobrano dane z bazy danych" + nazwaBazyDanych + "z tabeli" + nazwaTabeli);
