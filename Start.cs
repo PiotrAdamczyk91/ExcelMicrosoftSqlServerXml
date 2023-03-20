@@ -268,15 +268,25 @@ namespace ExcelMicrosoftSqlServerXml
                     }
 
                 }
+                reader.Close();
+
+                string nazwaFolderu = @"C:\TestExcel\";
+
+                if (!Directory.Exists(nazwaFolderu))
+                {
+                    Directory.CreateDirectory(nazwaFolderu);
+                }
+
 
                 using (StringWriter stringWriter = new StringWriter(new StringBuilder()))
                 {
                     XmlSerializer xmlSerializer = new XmlSerializer(typeof(List<Pracownik>));
 
 
-                    StreamWriter filestream = new StreamWriter(@"C:\TestExcel\test2.xml");
+                    StreamWriter filestream = new StreamWriter(nazwaFolderu+"test2.xml");
                     xmlSerializer.Serialize(filestream, listaPracownikowPobierz);
                     filestream.Close();
+                    stringWriter.Close();
                 }
 
 
@@ -289,6 +299,7 @@ namespace ExcelMicrosoftSqlServerXml
             catch (System.Exception ex)
             {
                 MessageBox.Show("B³¹d przy pobieraniu danych");
+                MessageBox.Show(ex.ToString(), "MyProgram", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

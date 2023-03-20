@@ -2114,23 +2114,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\padamczyk\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Piotr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\F7\\ExcelMicrosoftSqlServerXml\\ExcelMicrosoftSqlServerXml.csproj",
+      "projectUniqueName": "C:\\Users\\Piotr\\Source\\Repos\\ExcelMicrosoftSqlServerXml\\ExcelMicrosoftSqlServerXml.csproj",
       "projectName": "ExcelMicrosoftSqlServerXml",
-      "projectPath": "D:\\F7\\ExcelMicrosoftSqlServerXml\\ExcelMicrosoftSqlServerXml.csproj",
-      "packagesPath": "C:\\Users\\padamczyk\\.nuget\\packages\\",
-      "outputPath": "D:\\F7\\ExcelMicrosoftSqlServerXml\\obj\\",
+      "projectPath": "C:\\Users\\Piotr\\Source\\Repos\\ExcelMicrosoftSqlServerXml\\ExcelMicrosoftSqlServerXml.csproj",
+      "packagesPath": "C:\\Users\\Piotr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Piotr\\Source\\Repos\\ExcelMicrosoftSqlServerXml\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\padamczyk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Piotr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2138,7 +2134,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\nugety do visual studio": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2193,7 +2188,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
